@@ -37,7 +37,8 @@ def format_images(images_path):
         reader = csv.reader(f)
         dataset = list(reader)
         for row in tqdm(dataset, desc="reformatting image data"):
-            image = {'id': row[0], 'url': row[2]}
+            
+            image = {'id': row[0].replace('.jpg',''), 'url': row[1]}
             images.append(image)
     return images
 
